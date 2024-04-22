@@ -19,6 +19,7 @@
     font-size: 16px;
     text-align: center;
     background-color: rgb(235, 235, 230);
+    cursor: pointer;
 }
 input[type='text']{
     position: relative;
@@ -40,52 +41,78 @@ input[type="button"]{
     display:flex;
     justify-content: center;
 }
-
 .motor_works{
     /* margin-top: 60px;。 */
     position: relative;
     display: inline-block;
     margin-top: 60px;
+    margin-left: 130px;
     padding-top: 40px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     background-color: rgb(68, 132, 204);
     border-top: 6px solid rgb(230, 213, 23);
-    flex: 1;
+    width: 400px;
 }
 .motor_works_2{
     /* margin-top: 60px;。 */
     position: relative;
     display: inline-block;
     margin-top: 60px;
+    margin-left: 15px;
     padding-top: 40px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     background-color: rgb(68, 132, 204);
     border-top: 6px solid rgb(230, 213, 23);
-    flex: 1;
+    width: 390px;
 }
 .motor_works_3{
     /* margin-top: 60px;。 */
     position: relative;
     display: inline-block;
     margin-top: 60px;
+    margin-left: 15px;
     padding-top: 40px;
     padding-left: 5px;
     padding-right: 5px;
     padding-bottom: 5px;
     background-color: rgb(68, 132, 204);
     border-top: 6px solid rgb(230, 213, 23);
-    flex: 1;
+    width: 400px;
 }
-
-/* .motor_works::before{
-    content: "這是文字";
-    position: relative;
-    top: 6px;
-    left: 98px;  
-    color: rgb(214, 43, 43);
-    padding: 5px;
-} */
+.Media:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Food:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Money:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Travel:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Fashion:active{
+    background-color: rgb(188, 188, 185);
+}
+.Media:active{
+    background-color: rgb(188, 188, 185);
+}
+.Food:active{
+    background-color: rgb(188, 188, 185);
+}
+.Money:active{
+    background-color: rgb(188, 188, 185);
+}
+.Travel:active{
+    background-color: rgb(188, 188, 185);
+}
+.Fashion:active{
+    background-color: rgb(188, 188, 185);
+}
+.search_btn{
+    cursor: pointer;
+}
