@@ -1,0 +1,33 @@
+.logo{
+    width : 180px;
+    margin-left: 80px;
+    margin-top: 30px;
+}
+.logo_background{
+    height : 170px;
+    background-color:rgb(68, 132, 204);
+}
+.logo_background_2{
+    height : 10px;
+    background-color:rgb(230, 213, 23);
+}
+input[type='text']{
+    position: relative;
+    width: 50%;
+    height:35px
+}
+input[type="button"]{
+    position: relative;
+    height: 39px;
+    width: 100px;
+    background-color: rgb(11, 98, 161);
+    margin-left: 10px;
+    border-radius: 6px;
+    color: white;
+    text-align: center;
+}
+.input{
+    margin-top: 10px; ;
+    display:flex;
+    justify-content: center;
+}
