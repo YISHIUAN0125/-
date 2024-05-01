@@ -2,6 +2,7 @@
     width : 180px;
     margin-left: 80px;
     margin-top: 30px;
+    cursor: pointer;
 }
 .logo_background{
     height : 170px;
@@ -25,6 +26,7 @@ input[type="button"]{
     border-radius: 6px;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 .input{
     margin-top: 10px; ;

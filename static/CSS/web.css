@@ -1,7 +1,8 @@
 .logo{
     width : 180px;
     margin-left: 80px;
-    margin-top: 30px;
+    margin-top: 0px;
+    cursor: pointer;
 }
 .logo_background{
     height : 170px;
@@ -95,9 +96,10 @@ input[type="button"]{
 .Travel:hover{
     background-color: rgb(200, 200, 197);
 }
-.Fashion:active{
-    background-color: rgb(188, 188, 185);
+.Fashion:hover{
+    background-color: rgb(200, 200, 197);
 }
+
 .Media:active{
     background-color: rgb(188, 188, 185);
 }
@@ -115,4 +117,11 @@ input[type="button"]{
 }
 .search_btn{
     cursor: pointer;
+}
+#signUp{
+    position: relative;
+    margin-left: 1300px;
+    margin-top: 0;
+    z-index: 1;
+    margin-top: 10px;
 }
