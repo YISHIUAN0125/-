@@ -1,7 +1,7 @@
 .logo{
     width : 180px;
-    margin-left: 80px;
-    margin-top: 0px;
+    margin-left: 5rem;
+    margin-top: 2rem;
     cursor: pointer;
 }
 .logo_background{
@@ -32,13 +32,14 @@ input[type="button"]{
     height: 39px;
     width: 100px;
     background-color: rgb(11, 98, 161);
-    margin-left: 10px;
-    border-radius: 6px;
+    margin-left: 1rem;
+    border-radius: 0.5rem;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 .input{
-    margin-top: 10px; ;
+    margin-top: 0.5rem; ;
     display:flex;
     justify-content: center;
 }
@@ -46,43 +47,43 @@ input[type="button"]{
     /* margin-top: 60px;。 */
     position: relative;
     display: inline-block;
-    margin-top: 60px;
-    margin-left: 130px;
-    padding-top: 40px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    margin-top: 3.75rem;
+    margin-left: 8.125rem;
+    padding-top: 2.5rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
+    padding-bottom: 0.3125rem;
     background-color: rgb(68, 132, 204);
-    border-top: 6px solid rgb(230, 213, 23);
-    width: 400px;
+    border-top: 0.375rem solid rgb(230, 213, 23);
+    width: 26vw;
 }
 .motor_works_2{
     /* margin-top: 60px;。 */
     position: relative;
     display: inline-block;
-    margin-top: 60px;
-    margin-left: 15px;
-    padding-top: 40px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    margin-top: 3.75rem;
+    margin-left: 0.9375rem;
+    padding-top: 2.5rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
+    padding-bottom: 0.3125rem;
     background-color: rgb(68, 132, 204);
-    border-top: 6px solid rgb(230, 213, 23);
-    width: 390px;
+    border-top: 0.375rem solid rgb(230, 213, 23);
+    width: 25.4vw;
 }
 .motor_works_3{
     /* margin-top: 60px;。 */
     position: relative;
     display: inline-block;
-    margin-top: 60px;
-    margin-left: 15px;
-    padding-top: 40px;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 5px;
+    margin-top: 3.75rem;
+    margin-left: 0.9375rem;
+    padding-top: 2.5rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
+    padding-bottom: 0.3125rem;
     background-color: rgb(68, 132, 204);
-    border-top: 6px solid rgb(230, 213, 23);
-    width: 400px;
+    border-top: 0.375rem solid rgb(230, 213, 23);
+    width: 26vw;
 }
 .Media:hover{
     background-color: rgb(200, 200, 197);
@@ -118,10 +119,34 @@ input[type="button"]{
 .search_btn{
     cursor: pointer;
 }
-#signUp{
-    position: relative;
-    margin-left: 1300px;
-    margin-top: 0;
-    z-index: 1;
-    margin-top: 10px;
+#LogIn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem; /* 調整上邊距 */
+    margin-right: 1rem; /* 調整右邊距 */
+    cursor: pointer;
+}
+
+#signUp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem; /* 調整上邊距 */
+    margin-right: 4rem; /* 調整右邊距，使其顯示在 LogIn 的左邊 */
+    cursor: pointer;
+}
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.motor_works, .motor_works_2, .motor_works_3 {
+    opacity: 0; /* 初始設置透明度為0，讓元素隱藏 */
+    animation: fadeInFromTop 1s ease forwards; /* 使用fadeInFromTop動畫，持續時間為1秒，緩動函數為ease，最終保持動畫結果 */
 }

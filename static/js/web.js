@@ -18,3 +18,9 @@ function web2_(){
 function web1_(){
     window.location.href = "web_1.html";
 }
+function login(){
+    window.location.href = "login.html";
+}
+function signup(){
+    window.location.href = "signup.html";
+}
