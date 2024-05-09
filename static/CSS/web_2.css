@@ -33,3 +33,111 @@ input[type="button"]{
     display:flex;
     justify-content: center;
 }
+body {
+    margin: 0;
+}
+#table_container{
+    position: relative;
+}
+#table_1 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_1 td {
+    padding: 10px; /* 調整單元格內間距 */
+}
+
+#table_2 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_2 td {
+    padding: 10px; /* 調整單元格內間距 */
+}
+
+#table_3 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_3 td {
+    padding: 10px; /* 調整單元格內間距 */
+}
+
+.buy button {
+    padding: 5px 10px; /* 調整按鈕內間距 */
+    background-color: #007bff; /* 設定按鈕背景顏色 */
+    color: white; /* 設定按鈕文字顏色 */
+    border: none; /* 去掉按鈕邊框 */
+    cursor: pointer;
+}
+
+.buy button:hover {
+    background-color: #0056b3; /* 設定按鈕滑鼠懸停時的背景顏色 */
+}
+
+.filter {
+    position: absolute;
+    margin-top: 5rem;
+    margin-left: 0.5rem;
+    padding: 10px;
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 9rem; /* 調整寬度 */
+    z-index: 1; /* 確保 filter 在上層 */
+}
+
+.filter h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.filter label, .filter select {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.filter button {
+    display: block;
+    margin: 0 auto;
+}
+#LogIn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem; /* 調整上邊距 */
+    margin-right: 1rem; /* 調整右邊距 */
+    cursor: pointer;
+}
+
+#signUp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem; /* 調整上邊距 */
+    margin-right: 4rem; /* 調整右邊距，使其顯示在 LogIn 的左邊 */
+    cursor: pointer;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>eyefind_shop</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="..\static\CSS\web_2.css"/>
+    </head>
+    <body style="margin: 0;">
+        <nav id="nav_bar">
+            <div class="logo_background">
+            <button  id="signUp" onclick="signup()">註冊</button>
+            <button  id="LogIn" onclick="login()">登錄</button>
+            <img src="..\static\img\Eyefind.info-GTA4-logo.jpg" class="logo"/>
+                <div class="input">
+                    <input type="text" placeholder="Search"/>
+                    <input type="button" name="search" value="RANDOM" class="search_btn"/>
+                </div>
+             </div>
+            <div class="logo_background_2"></div>
+        </nav>
+    <div id = 'table_container'>
+        <div class="filter">
+            <!-- <h2>篩選器</h2> -->
+            <label for="price">價格範圍：</label>
+            <select id="price">
+                <option value="0-50000">$0 - $50,000</option>
+                <option value="50001-100000">$50,001 - $100,000</option>
+                <option value="100001-150000">$100,001 - $150,000</option>
+                <option value="150001-200000">$150,001 - $200,000</option>
+            </select>
+            <label for="model">車型：</label>
+            <select id="model">
+                <option value="M2">BMW M2</option>
+                <option value="M4">BMW M4</option>
+                <option value="M5">BMW M5</option>
+            </select>
+            <label for="brand">品牌：</label>
+            <select id="brand">
+                <option value="BMW">BMW</option>
+                <option value="Audi">Audi</option>
+                <option value="Mercedes-Benz">Mercedes-Benz</option>
+            </select>
+            <button onclick="applyFilter()">search</button>
+        </div>
+        <table id ="table_1" border="3px">
+            <tr>
+                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="250"/></a></td>
+            </tr>
+            <tr>
+                <td>BMW M2</td>
+                <td>BMW M4</td>
+                <td>BMW M5</td>
+            </tr>
+            <tr>
+                <td>$3,690,000</td>
+                <td>$6,222,000</td>
+                <td>$7,650,000</td>
+            </tr>
+            <tr class = "buy">
+                <td><button onclick="M2()">加入購物車</button></td>
+                <td><button onclick="M4()">加入購物車</button></td>
+                <td><button onclick="M5()">加入購物車</button></td>
+            </tr>
+        </table>
+        <table id ="table_2" border="3px">
+            <tr>
+                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="250"/></a></td>
+            </tr>
+            <tr>
+                <td>BMW M2</td>
+                <td>BMW M4</td>
+                <td>BMW M5</td>
+            </tr>
+            <tr>
+                <td>$3,690,000</td>
+                <td>$6,222,000</td>
+                <td>$7,650,000</td>
+            </tr>
+            <tr class = "buy">
+                <td><button onclick="M2()">加入購物車</button></td>
+                <td><button onclick="M4()">加入購物車</button></td>
+                <td><button onclick="M5()">加入購物車</button></td>
+            </tr>
+        </table>
+        <table id ="table_3" border="3px">
+            <tr>
+                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="250"/></a></td>
+            </tr>
+            <tr>
+                <td>BMW M2</td>
+                <td>BMW M4</td>
+                <td>BMW M5</td>
+            </tr>
+            <tr>
+                <td>$3,690,000</td>
+                <td>$6,222,000</td>
+                <td>$7,650,000</td>
+            </tr>
+            <tr class = "buy">
+                <td><button onclick="M2()">加入購物車</button></td>
+                <td><button onclick="M4()">加入購物車</button></td>
+                <td><button onclick="M5()">加入購物車</button></td>
+            </tr>
+        </table>
+    </div>
+    <script src="..\static\js\web_2.js"></script>
+    </body>
+</html>
