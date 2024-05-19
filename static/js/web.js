@@ -13,14 +13,14 @@ Fashion[0].addEventListener('click',web2_);
 logo[0].addEventListener('click',web1_);
 
 function web2_(){
-    window.location.href = "web_2.html";
+    window.location.href = "/web_2";
 }
 function web1_(){
-    window.location.href = "web_1.html";
+    window.location.href = "/web_1";
 }
 function login(){
-    window.location.href = "login.html";
+    window.location.href = "/login";
 }
 function signup(){
-    window.location.href = "signup.html";
+    window.location.href = "/signup";
 }
