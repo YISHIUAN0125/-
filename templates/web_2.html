@@ -8,8 +8,19 @@
     <body style="margin: 0;">
         <nav id="nav_bar">
             <div class="logo_background">
-                <p  id="signUp" onclick="signup()">註冊</p>
-                <p  id="LogIn" onclick="login()">登錄</p>
+                    {% with message = get_flashed_messages() %}
+                    {%if message %}
+                        {%for messages in message%}
+                            <p id="welcomMsg">Hi {{messages}}</p>
+                            <form action="{{ url_for('logout') }}" method="post">
+                                <button type="submit" class="logout">登出</button>
+                            </form>
+                        {%endfor%}
+                    {% else %}
+                        <p  id="signUp" onclick="signup()">註冊</p>
+                        <p  id="LogIn" onclick="login()">登錄</p>
+                    {% endif%}
+                    {% endwith %}
             <img src="..\static\img\Eyefind.info-GTA4-logo.jpg" class="logo"/>
                 <div class="input">
                     <input type="text" placeholder="Search"/>
@@ -18,8 +29,9 @@
              </div>
             <div class="logo_background_2"></div>
         </nav>
+        <body>
     <div id = 'table_container'>
-        <div class="filter">
+        <div class="filter"><!--TODO寫好商品篩選功能-->
             <label for="price">價格範圍：</label>
             <select id="price">
                 <option value="0-50000">$0 - $50,000</option>
@@ -41,11 +53,11 @@
             </select>
             <button onclick="applyFilter()">search</button>
         </div>
-        <table id ="table_1" border="3px">
+        <table id ="table_1" border="3px"> <!--TODO處理上架之後商品圖片無法顯示問題-->
             <tr>
-                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="250"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="250"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="200"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="200"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="200"/></a></td>
             </tr>
             <tr>
                 <td>BMW M2</td>
@@ -58,16 +70,16 @@
                 <td>$7,650,000</td>
             </tr>
             <tr class = "buy">
-                <td><button onclick="M2()">加入購物車</button></td>
+                <td><button onclick="M2()">加入購物車</button></td> <!--TODO讓加入購物車按鈕有功能-->
                 <td><button onclick="M4()">加入購物車</button></td>
                 <td><button onclick="M5()">加入購物車</button></td>
             </tr>
         </table>
         <table id ="table_2" border="3px">
             <tr>
-                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="250"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="250"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="200"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="200"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="200"/></a></td>
             </tr>
             <tr>
                 <td>BMW M2</td>
@@ -87,9 +99,9 @@
         </table>
         <table id ="table_3" border="3px">
             <tr>
-                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="250"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="250"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="250"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="200"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="200"/></a></td>
+                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="200"/></a></td>
             </tr>
             <tr>
                 <td>BMW M2</td>

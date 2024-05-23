@@ -52,7 +52,7 @@ body {
 }
 
 #table_1 td {
-    padding: 10px; /* 調整單元格內間距 */
+    padding: 0.625rem; /* 調整單元格內間距 */
 }
 
 #table_2 {
@@ -68,7 +68,7 @@ body {
 }
 
 #table_2 td {
-    padding: 10px; /* 調整單元格內間距 */
+    padding: 0.625rem; /* 調整單元格內間距 */
 }
 
 #table_3 {
@@ -84,7 +84,7 @@ body {
 }
 
 #table_3 td {
-    padding: 10px; /* 調整單元格內間距 */
+    padding: 0.625rem; /* 調整單元格內間距 */
 }
 
 .buy button {
@@ -146,3 +146,27 @@ body {
 .logo_background p {
     color: white;
 }
+
+#welcomMsg{
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem; /* 調整上邊距 */
+    margin-right: 4rem; /* 調整右邊距，使其顯示在 LogIn 的左邊 */
+    cursor: pointer;
+}
+
+.logout{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem; /* 調整上邊距 */
+    margin-right: 1rem; /* 調整右邊距 */
+    cursor: pointer;
+}
+
+
+
+
+
