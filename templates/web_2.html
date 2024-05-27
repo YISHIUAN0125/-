@@ -3,123 +3,105 @@
     <head>
         <title>eyefind_shop</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="..\static\CSS\web_2.css"/>
+        <link rel="stylesheet" href="../static/CSS/web_2.css"/>
     </head>
     <body style="margin: 0;">
         <nav id="nav_bar">
             <div class="logo_background">
-                    {% with message = get_flashed_messages() %}
-                    {%if message %}
-                        {%for messages in message%}
-                            <p id="welcomMsg">Hi {{messages}}</p>
-                            <form action="{{ url_for('logout') }}" method="post">
-                                <button type="submit" class="logout">登出</button>
-                            </form>
-                        {%endfor%}
-                    {% else %}
-                        <p  id="signUp" onclick="signup()">註冊</p>
-                        <p  id="LogIn" onclick="login()">登錄</p>
-                    {% endif%}
-                    {% endwith %}
-            <img src="..\static\img\Eyefind.info-GTA4-logo.jpg" class="logo"/>
+                <img src="../static/img/Eyefind.info-GTA4-logo.jpg" class="logo" onclick="web1_()"/>
                 <div class="input">
                     <input type="text" placeholder="Search"/>
                     <input type="button" name="search" value="RANDOM" class="search_btn"/>
                 </div>
-             </div>
+                <div id="loginSection">
+                    {% with message = get_flashed_messages() %}
+                    {% if message %}
+                        {% for messages in message %}
+                            <p id="welcomMsg">Hi {{ messages }}</p>
+                            <form action="{{ url_for('logout') }}" method="post">
+                                <button type="submit" class="logout">登出</button>
+                            </form>
+                        {% endfor %}
+                    {% else %}
+                        <p id="signUp" onclick="signup()">註冊</p>
+                        <p id="LogIn" onclick="login()">登錄</p>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+            </div>
             <div class="logo_background_2"></div>
         </nav>
-        <body>
-    <div id = 'table_container'>
-        <div class="filter"><!--TODO寫好商品篩選功能-->
-            <label for="price">價格範圍：</label>
-            <select id="price">
-                <option value="0-50000">$0 - $50,000</option>
-                <option value="50001-100000">$50,001 - $100,000</option>
-                <option value="100001-150000">$100,001 - $150,000</option>
-                <option value="150001-200000">$150,001 - $200,000</option>
-            </select>
-            <label for="model">車型：</label>
-            <select id="model">
-                <option value="M2">BMW M2</option>
-                <option value="M4">BMW M4</option>
-                <option value="M5">BMW M5</option>
-            </select>
-            <label for="brand">品牌：</label>
-            <select id="brand">
-                <option value="BMW">BMW</option>
-                <option value="Audi">Audi</option>
-                <option value="Mercedes-Benz">Mercedes-Benz</option>
-            </select>
-            <button onclick="applyFilter()">search</button>
+        <div id='table_container'>
+            <div class="filter">
+                <label for="brand">品牌：</label>
+                <select id="brand">
+                    <option value="All">All</option>
+                    <option value="BMW">BMW</option>
+                    <option value="Audi">Audi</option>
+                    <option value="Mercedes-Benz">Mercedes-Benz</option>
+                </select>
+                <label for="priceRange">價格範圍：</label>
+                <select id="priceRange">
+                    <option value="All">All</option>
+                    <option value="0-1000000">0 - 1,000,000</option>
+                    <option value="1000001-2000000">1,000,001 - 2,000,000</option>
+                    <option value="2000001-3000000">2,000,001 - 3,000,000</option>
+                </select>
+                <button onclick="applyFilter()" class="search_btn">Search</button>
+            </div>
+            <!-- Tables retained from original code -->
+            <table id="table_1" border="3px" class="BMW">
+                <tr>
+                    <td><a href="Web_2.html"><img src="../static/img/M2.jpg" width="200"/></a></td>
+                    <td><a href="Web_2.html"><img src="../static/img/M4.jpg" width="200"/></a></td>
+                    <td><a href="Web_2.html"><img src="../static/img/M5.jpg" width="200"/></a></td>
+                </tr>
+                <tr>
+                    <td>BMW M2 - $1,000,000</td>
+                    <td>BMW M4 - $1,200,000</td>
+                    <td>BMW M5 - $1,500,000</td>
+                </tr>
+                <tr class="buy">
+                    <td><button onclick="M2()">加入購物車</button></td>
+                    <td><button onclick="M4()">加入購物車</button></td>
+                    <td><button onclick="M5()">加入購物車</button></td>
+                </tr>
+            </table>
+            <table id="table_2" border="3px" class="Audi">
+                <tr>
+                    <td><a href="Web_2.html"><img src="../static/img/audiA4.jpg" width="200"/></a></td>
+                    <td><a href="Web_2.html"><img src="../static/img/audiA3.jpg" width="200"/></a></td>
+                    <td><a href="Web_2.html"><img src="../static/img/AudiA1.jpg" width="200"/></a></td>
+                </tr>
+                <tr>
+                    <td>Audi A4 - $1,100,000</td>
+                    <td>Audi A3 - $900,000</td>
+                    <td>Audi A1 - $800,000</td>
+                </tr>
+                <tr class="buy">
+                    <td><button onclick="A4()">加入購物車</button></td>
+                    <td><button onclick="A3()">加入購物車</button></td>
+                    <td><button onclick="A1()">加入購物車</button></td>
+                </tr>
+            </table>
+            <table id="table_3" border="3px" class="Mercedes-Benz">
+                <tr>
+                    <td><a href="Web_2.html"><img src="../static/img/c200.jpg" width="200"/></a></td>
+                    <td><a href="Web_2.html"><img src="../static/img/c250.jpg" width="200"/></a></td>
+                    <td><a href="Web_2.html"><img src="../static/img/c300.jpg" width="200"/></a></td>
+                </tr>
+                <tr>
+                    <td>Benz c200 - $1,300,000</td>
+                    <td>Benz c250 - $1,400,000</td>
+                    <td>Benz c300 - $1,600,000</td>
+                </tr>
+                <tr class="buy">
+                    <td><button onclick="c200()">加入購物車</button></td>
+                    <td><button onclick="c250()">加入購物車</button></td>
+                    <td><button onclick="c300()">加入購物車</button></td>
+                </tr>
+            </table>
         </div>
-        <table id ="table_1" border="3px"> <!--TODO處理上架之後商品圖片無法顯示問題-->
-            <tr>
-                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="200"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="200"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="200"/></a></td>
-            </tr>
-            <tr>
-                <td>BMW M2</td>
-                <td>BMW M4</td>
-                <td>BMW M5</td>
-            </tr>
-            <tr>
-                <td>$3,690,000</td>
-                <td>$6,222,000</td>
-                <td>$7,650,000</td>
-            </tr>
-            <tr class = "buy">
-                <td><button onclick="M2()">加入購物車</button></td> <!--TODO讓加入購物車按鈕有功能-->
-                <td><button onclick="M4()">加入購物車</button></td>
-                <td><button onclick="M5()">加入購物車</button></td>
-            </tr>
-        </table>
-        <table id ="table_2" border="3px">
-            <tr>
-                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="200"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="200"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="200"/></a></td>
-            </tr>
-            <tr>
-                <td>BMW M2</td>
-                <td>BMW M4</td>
-                <td>BMW M5</td>
-            </tr>
-            <tr>
-                <td>$3,690,000</td>
-                <td>$6,222,000</td>
-                <td>$7,650,000</td>
-            </tr>
-            <tr class = "buy">
-                <td><button onclick="M2()">加入購物車</button></td>
-                <td><button onclick="M4()">加入購物車</button></td>
-                <td><button onclick="M5()">加入購物車</button></td>
-            </tr>
-        </table>
-        <table id ="table_3" border="3px">
-            <tr>
-                <td><a href="Web_2.html"><img src="..\static\img\M2.jpg" width="200"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M4.jpg" width="200"/></a></td>
-                <td><a href="Web_2.html"><img src="..\static\img\M5.jpg" width="200"/></a></td>
-            </tr>
-            <tr>
-                <td>BMW M2</td>
-                <td>BMW M4</td>
-                <td>BMW M5</td>
-            </tr>
-            <tr>
-                <td>$3,690,000</td>
-                <td>$6,222,000</td>
-                <td>$7,650,000</td>
-            </tr>
-            <tr class = "buy">
-                <td><button onclick="M2()">加入購物車</button></td>
-                <td><button onclick="M4()">加入購物車</button></td>
-                <td><button onclick="M5()">加入購物車</button></td>
-            </tr>
-        </table>
-    </div>
-    <script src="..\static\js\web_2.js"></script>
+        <script src="../static/js/web_2.js"></script>
     </body>
 </html>

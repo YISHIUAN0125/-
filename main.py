@@ -9,12 +9,10 @@ app.secret_key = 'asdasd'
 def homePage():
     return render_template("web_1.html")
 
+
 @app.route('/web_2', methods=['GET'])
 def shop():
     return render_template("web_2.html")
-
-
-
 
 
 #登錄
