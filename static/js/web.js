@@ -16,7 +16,7 @@ function web2_(){
     window.location.href = "/web_2";
 }
 function web1_(){
-    window.location.href = "/web_1";
+    window.location.href = "/";
 }
 function login(){
     window.location.href = "/login";

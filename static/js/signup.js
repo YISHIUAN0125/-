@@ -4,7 +4,7 @@ let username = document.getElementById('user');
 
 logo[0].addEventListener('click',web1_);
 function web1_(){
-    window.location.href = "/web_1";
+    window.location.href = "/";
 }
 function login(){
     window.location.href = "/login";
