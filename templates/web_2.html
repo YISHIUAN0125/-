@@ -42,15 +42,15 @@
                 </select>
                 <label for="priceRange">價格範圍：</label>
                 <select id="priceRange">
-                    <option value="All">All</option>
-                    <option value="0-1000000">0 - 1,000,000</option>
-                    <option value="1000001-2000000">1,000,001 - 2,000,000</option>
-                    <option value="2000001-3000000">2,000,001 - 3,000,000</option>
+                    <option value="0-999999999">All</option>
+                    <option value="0-1000000">低於 $1,000,000</option>
+                    <option value="1000000-1300000">$1,000,000 - $1,300,000</option>
+                    <option value="1300000-1500000">$1,300,000 - $1,500,000</option>
+                    <option value="1500000-2000000">$1,500,000 - $2,000,000</option>
                 </select>
-                <button onclick="applyFilter()" class="search_btn">Search</button>
+                <button onclick="applyFilter()">篩選</button>
             </div>
-            <!-- Tables retained from original code -->
-            <table id="table_1" border="3px" class="BMW">
+            <table id="table_1" border="3px" class="BMW"><!--TODO商品加入購物車--><!--TODO如果可以，讓價格更多樣化-->
                 <tr>
                     <td><a href="Web_2.html"><img src="../static/img/M2.jpg" width="200"/></a></td>
                     <td><a href="Web_2.html"><img src="../static/img/M4.jpg" width="200"/></a></td>

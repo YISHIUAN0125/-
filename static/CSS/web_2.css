@@ -106,7 +106,7 @@ body {
     padding: 10px;
     background-color: #f9f9f9;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 9rem; /* 調整寬度 */
+    width: 10rem; /* 調整寬度 */
     z-index: 1; /* 確保 filter 在上層 */
 }
 
