@@ -81,3 +81,7 @@ input[type="button"]{
     border-radius: 3px;
     cursor: pointer;
 }
+#signup{
+    cursor: pointer;
+    position: relative;
+}

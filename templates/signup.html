@@ -21,12 +21,14 @@
             <div class="form-container">
                 <h1>Register</h1>
                 <form action="/signup" method="post">
-                    <label for="username">Username:</label>
+                    <label for="username">名稱:</label>
                     <input type="text" name="username" id="user" required><br>
-                    <label for="password">Password:</label>
+                    <label for="password">密碼:</label>
                     <input type="password" name="password" required><br>
-                    <input type="submit" value="Register">
+                    <input type="submit" value="註冊">
+                    <div ><p>已有帳號嗎?</p><botton onclick="login()" id='login'>登錄</botton></div>
                 </form>
+                
             </div>
         </div>
         <script src="..\static\js\signup.js"></script>

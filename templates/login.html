@@ -22,11 +22,12 @@
         <div class="form-container">
             <h1>Log in</h1>
             <form action="/login" method="post">
-                <label for="username">Username:</label>
+                <label for="username">名稱:</label>
                 <input type="text" name="username" required><br>
-                <label for="password">Password:</label>
+                <label for="password">密碼:</label>
                 <input type="password" name="password" required><br>
-                <input type="submit" value="Login">
+                <input type="submit" value="登錄">
+                <div ><p>已有帳號嗎?</p><botton onclick="signup()" id='signup'>註冊</botton></div>
             </form>
         </div>
     </div>
