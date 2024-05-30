@@ -1,67 +1,3 @@
-// function applyFilter() {
-//     var selectedBrand = document.getElementById('brand').value;
-//     var priceRange = document.getElementById('priceRange').value.split('-');
-//     var minPrice = priceRange[0] === "All" ? 0 : parseInt(priceRange[0]);
-//     var maxPrice = priceRange[1] === "All" ? Infinity : parseInt(priceRange[1]);
-
-//     var tables = document.querySelectorAll('table');
-//     tables.forEach(function(table) {
-//         var display = false;
-//         if (table.classList.contains(selectedBrand) || selectedBrand === "All") {
-//             var rows = table.querySelectorAll('tr');
-//             rows.forEach(function(row, index) {
-//                 if (index === 1) { // Assuming price is always on the second row
-//                     var priceText = row.textContent.match(/\d+/g).join(''); // Remove non-numeric chars and join
-//                     var price = parseInt(priceText); // Parse the integer
-//                     if ((price >= minPrice && price <= maxPrice) || priceRange[0] === "All") {
-//                         display = true;
-//                     }
-//                 }
-//             });
-//         }
-//         table.style.display = display ? '' : 'none';
-//     });
-// }
-
-// function applyFilter() {
-//     var brand = document.getElementById("brand").value;
-//     var priceRange = document.getElementById("priceRange").value;
-//     var tables = document.querySelectorAll("table");
-
-//     tables.forEach(function(table) {
-//         table.style.display = "none"; // 默認隱藏所有表格
-
-//         var rows = table.rows;
-//         var showTable = false;
-
-//         if (brand === "All" || table.classList.contains(brand)) {
-//             if (priceRange === "All") {
-//                 showTable = true;
-//             } else {
-//                 var [minPrice, maxPrice] = priceRange.split("-").map(Number);
-//                 for (var i = 1; i < rows[1].cells.length; i++) {
-//                     var priceText = rows[1].cells[i - 1].innerText;
-//                     var price = Number(priceText.match(/\d+/g).join(""));
-//                     console.log(price)
-//                     if (price >= minPrice && price <= maxPrice) {
-//                         showTable = true;
-//                         break;
-//                     }
-
-//                 }
-//             }
-//         }
-
-//         if (showTable) {
-//             table.style.display = "";
-//         }
-//     });
-// }
-
-var table_1 = document.getElementById('table_1')
-var table_2 = document.getElementById('table_2')
-var table_3 = document.getElementById('table_3')
-
 function applyFilter() {
     var brand = document.getElementById("brand").value;
     var priceRange = document.getElementById("priceRange").value.split("-");
@@ -81,6 +17,9 @@ function applyFilter() {
     });
 }
 
+function goToCart(){
+    window.location.href = "/cart";
+}
 
 function web1_() {
     window.location.href = "/";
@@ -93,3 +32,54 @@ function login() {
 function signup() {
     window.location.href = "/signup";
 }
+
+// 加入購物車
+function addToCart(product_name, price) {
+    // 發送 GET 請求到 '/get-username' 獲取使用者名稱
+    fetch('/get-username')
+    .then(response => response.json())
+    .then(data => {
+        const username = data.username;
+        
+        // 發送 POST 請求到 '/add-to-cart'
+        fetch('/add-to-cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({username, product_name, price})
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.id) {
+                alert('Item added to cart with ID: ' + data.id);
+            } else {
+                alert('Error: ' + data.message);
+            }
+        });
+    });
+}
+
+function loadCartItems() {
+    fetch('/get-cart-items')
+        .then(response => response.json())
+        .then(data => {
+            const cartContainer = document.getElementById('cart-container');
+            cartContainer.innerHTML = '';  // 清空現有的購物車內容
+
+            if (data.items.length > 0) {
+                data.items.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.innerHTML = `Product: ${item.car_id}`;
+                    cartContainer.appendChild(itemElement);
+                });
+            } else {
+                cartContainer.innerHTML = 'Your cart is empty.';
+            }
+        })
+        .catch(error => console.error('Error fetching cart items:', error));
+}
+
+window.onload = function() {
+    loadCartItems();  // 頁面加載時加載購物車內容
+};
