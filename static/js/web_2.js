@@ -60,7 +60,7 @@ function addToCart(product_name, price) {
     });
 }
 
-function loadCartItems() {
+function loadCartItems() { //TODO加入checkbox以及數量還有結帳按鈕
     fetch('/get-cart-items')
         .then(response => response.json())
         .then(data => {

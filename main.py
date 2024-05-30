@@ -97,7 +97,7 @@ def get_username():
     return jsonify({'message': 'User not logged in'}), 401
 
 
-@app.route('/add-to-cart', methods=['POST'])
+@app.route('/add-to-cart', methods=['POST']) #TODO將商品價格也加入資料庫
 def add_to_cart():
     print(tmp)
     if  not session['user_']:
@@ -127,7 +127,7 @@ def add_to_cart():
         return jsonify({'message': 'Product out of stock'}), 400
 
 
-@app.route('/get-cart-items', methods=['GET'])
+@app.route('/get-cart-items', methods=['GET']) #TODO返回商品名稱跟價格
 def get_cart_items():
     con = sq.connect('eyefind.db')
     cursorObj = con.cursor()
