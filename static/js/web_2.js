@@ -63,51 +63,21 @@ var table_2 = document.getElementById('table_2')
 var table_3 = document.getElementById('table_3')
 
 function applyFilter() {
-    // 獲取選中的品牌和價格範圍
-    let brandFilter = document.getElementById('brand').value;
-    let priceRange = document.getElementById('priceRange').value;
-    let [minPrice, maxPrice] = priceRange.split("-").map(Number);
+    var brand = document.getElementById("brand").value;
+    var priceRange = document.getElementById("priceRange").value.split("-");
+    var minPrice = parseInt(priceRange[0]);
+    var maxPrice = parseInt(priceRange[1]);
 
-    // 定義需要篩選的表格
-    let tables = [
-        { id: 'table_1', brand: 'BMW' },
-        { id: 'table_2', brand: 'Audi' },
-        { id: 'table_3', brand: 'Mercedes-Benz' }
-    ];
-
-    tables.forEach(table => {
-        // 獲取表格和所有行
-        let tableElement = document.getElementById(table.id);
-        let rows = tableElement.getElementsByTagName('tr');
-        let showTable = false;
-
-        // 遍歷表格的每一行，從第二行開始（忽略標題行）
-        for (let i = 0; i < rows.length; i += 3) {
-            // 獲取價格單元格內容，並轉換為數字
-            let priceCell = rows[i + 1].getElementsByTagName('td');
-            for (let j = 0; j < priceCell.length; j++) {
-                let priceText = priceCell[j].textContent;
-                let price = parseInt(priceText.match(/\$([0-9,]+)/)[1].replace(/,/g, ''));
-
-                // 根據品牌和價格範圍篩選，顯示或隱藏相應的行
-                let brandMatch = (brandFilter === 'All' || table.brand === brandFilter);
-                let priceMatch = (price >= minPrice && price <= maxPrice);
-                
-                if (brandMatch && priceMatch) {
-                    rows[i].style.display = '';
-                    rows[i + 1].style.display = '';
-                    rows[i + 2].style.display = '';
-                    showTable = true;
-                } else {
-                    rows[i].style.display = 'none';
-                    rows[i + 1].style.display = 'none';
-                    rows[i + 2].style.display = 'none';
-                }
-            }
+    var tables = document.querySelectorAll("table");
+    tables.forEach(function(table) {
+        var price = parseInt(table.rows[0].cells[1].innerText.split("$")[1].replace(/,/g, ""));
+        var tableBrand = table.className;
+        console.log(tableBrand);
+        if ((brand === "All" || brand === tableBrand) && (price >= minPrice && price <= maxPrice)) {
+            table.style.display="";
+        } else {
+            table.style.display="none";
         }
-
-        // 根據篩選結果顯示或隱藏整個表格
-        tableElement.style.display = showTable ? '' : 'none';
     });
 }
 

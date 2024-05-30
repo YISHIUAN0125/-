@@ -87,6 +87,102 @@ body {
     padding: 0.625rem; /* 調整單元格內間距 */
 }
 
+#table_4 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_4 td {
+    padding: 0.625rem; /* 調整單元格內間距 */
+}
+
+#table_5 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_5 td {
+    padding: 0.625rem; /* 調整單元格內間距 */
+}
+
+#table_6 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_6 td {
+    padding: 0.625rem; /* 調整單元格內間距 */
+}
+
+#table_7 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_7 td {
+    padding: 0.625rem; /* 調整單元格內間距 */
+}
+
+#table_8 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_8 td {
+    padding: 0.625rem; /* 調整單元格內間距 */
+}
+
+#table_9 {
+    width: 60%; /* 調整表格寬度 */
+    /* margin: 0 auto; 將表格水平置中 */
+    border-collapse: collapse; /* 去掉表格邊框 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加陰影效果 */
+    margin-top: 1rem;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    /* z-index: 1; */
+}
+
+#table_9 td {
+    padding: 0.625rem; /* 調整單元格內間距 */
+}
+
 .buy button {
     padding: 5px 10px; /* 調整按鈕內間距 */
     background-color: #007bff; /* 設定按鈕背景顏色 */

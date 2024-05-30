@@ -14,7 +14,7 @@
                     <input type="button" name="search" value="RANDOM" class="search_btn"/>
                 </div>
                 <div id="loginSection">
-                    {% with message = get_flashed_messages() %}
+                    <!-- {% with message = get_flashed_messages() %}
                     {% if message %}
                         {% for messages in message %}
                             <p id="welcomMsg">Hi {{ messages }}</p>
@@ -26,7 +26,7 @@
                         <p id="signUp" onclick="signup()">註冊</p>
                         <p id="LogIn" onclick="login()">登錄</p>
                     {% endif %}
-                    {% endwith %}
+                    {% endwith %} -->
                 </div>
             </div>
             <div class="logo_background_2"></div>
@@ -50,57 +50,56 @@
                 </select>
                 <button onclick="applyFilter()">篩選</button>
             </div>
+            <!--product table start-->
             <table id="table_1" border="3px" class="BMW"><!--TODO商品加入購物車--><!--TODO如果可以，讓價格更多樣化-->
-                <tr>
-                    <td><a href="Web_2.html"><img src="../static/img/M2.jpg" width="200"/></a></td>
-                    <td><a href="Web_2.html"><img src="../static/img/M4.jpg" width="200"/></a></td>
-                    <td><a href="Web_2.html"><img src="../static/img/M5.jpg" width="200"/></a></td>
-                </tr>
-                <tr>
-                    <td>BMW M2 - $1,000,000</td>
-                    <td>BMW M4 - $1,200,000</td>
-                    <td>BMW M5 - $1,500,000</td>
-                </tr>
-                <tr class="buy">
-                    <td><button onclick="M2()">加入購物車</button></td>
-                    <td><button onclick="M4()">加入購物車</button></td>
-                    <td><button onclick="M5()">加入購物車</button></td>
-                </tr>
+                <td><a href="/Web_2"><img src="../static/img/M2.jpg" width="200"/></a></td>
+                <td>BMW M2 - $1,000,000</td>
+                <!-- <td>$1,000,000</td> -->
+                <td class="buy"><button onclick="M2()">加入購物車</button></td>
             </table>
-            <table id="table_2" border="3px" class="Audi">
-                <tr>
-                    <td><a href="Web_2.html"><img src="../static/img/audiA4.jpg" width="200"/></a></td>
-                    <td><a href="Web_2.html"><img src="../static/img/audiA3.jpg" width="200"/></a></td>
-                    <td><a href="Web_2.html"><img src="../static/img/AudiA1.jpg" width="200"/></a></td>
-                </tr>
-                <tr>
-                    <td>Audi A4 - $1,100,000</td>
-                    <td>Audi A3 - $900,000</td>
-                    <td>Audi A1 - $800,000</td>
-                </tr>
-                <tr class="buy">
-                    <td><button onclick="A4()">加入購物車</button></td>
-                    <td><button onclick="A3()">加入購物車</button></td>
-                    <td><button onclick="A1()">加入購物車</button></td>
-                </tr>
+            <table id="table_2" border="3px" class="BMW">
+                <td><a href="/Web_2"><img src="../static/img/M4.jpg" width="200"/></a></td>
+                <td>BMW M4 - $1,200,000</td>
+                <td class="buy"><button onclick="M4()">加入購物車</button></td>
             </table>
-            <table id="table_3" border="3px" class="Mercedes-Benz">
-                <tr>
-                    <td><a href="Web_2.html"><img src="../static/img/c200.jpg" width="200"/></a></td>
-                    <td><a href="Web_2.html"><img src="../static/img/c250.jpg" width="200"/></a></td>
-                    <td><a href="Web_2.html"><img src="../static/img/c300.jpg" width="200"/></a></td>
-                </tr>
-                <tr>
-                    <td>Benz c200 - $1,300,000</td>
-                    <td>Benz c250 - $1,400,000</td>
-                    <td>Benz c300 - $1,600,000</td>
-                </tr>
-                <tr class="buy">
-                    <td><button onclick="c200()">加入購物車</button></td>
-                    <td><button onclick="c250()">加入購物車</button></td>
-                    <td><button onclick="c300()">加入購物車</button></td>
-                </tr>
+            <table id="table_3" border="3px" class="BMW">
+                <td><a href="/Web_2"><img src="../static/img/M5.jpg" width="200"/></a></td>
+                <td>BMW M5 - $1,500,000</td>
+                <td class="buy"><button onclick="M5()">加入購物車</button></td>
             </table>
+
+            <table id="table_4" border="3px" class="Audi"><!--TODO商品加入購物車--><!--TODO如果可以，讓價格更多樣化-->
+                <td><a href="Web_2.html"><img src="../static/img/audiA4.jpg" width="200"/></a></td>
+                <td>Audi A4 - $1,100,000</td>
+                <td class="buy"><button onclick="A4()">加入購物車</button></td>
+            </table>
+            <table id="table_5" border="3px" class="Audi">
+                <td><a href="Web_2.html"><img src="../static/img/audiA3.jpg" width="200"/></a></td>
+                <td>Audi A3 - $900,000</td>
+                <td class="buy"><button onclick="A3()">加入購物車</button></td>
+            </table>
+            <table id="table_6" border="3px" class="Audi">
+                <td><a href="Web_2.html"><img src="../static/img/AudiA1.jpg" width="200"/></a></td>
+                <td>Audi A1 - $800,000</td>
+                <td class="buy"><button onclick="A1()" >加入購物車</button></td>
+            </table>
+
+            <table id="table_7" border="3px" class="Mercedes-Benz"><!--TODO商品加入購物車--><!--TODO如果可以，讓價格更多樣化-->
+                <td><a href="Web_2.html"><img src="../static/img/c200.jpg" width="200"/></a></td>
+                <td>Benz c200 - $1,300,000</td>
+                <td class="buy"><button onclick="c200()">加入購物車</button></td>
+            </table>
+            <table id="table_8" border="3px" class="Mercedes-Benz">
+                <td><a href="Web_2.html"><img src="../static/img/c250.jpg" width="200"/></a></td>
+                <td>Benz c250 - $1,400,000</td>
+                <td class="buy"><button onclick="c250()">加入購物車</button></td>
+            </table>
+            <table id="table_9" border="3px" class="Mercedes-Benz">
+                <td><a href="Web_2.html"><img src="../static/img/c300.jpg" width="200"/></a></td>
+                <td>Benz c300 - $1,600,000</td>
+                <td class="buy"><button onclick="c300()">加入購物車</button></td>
+            </table>
+        <!--product table end-->
         </div>
         <script src="../static/js/web_2.js"></script>
     </body>
