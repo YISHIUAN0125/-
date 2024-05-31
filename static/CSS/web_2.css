@@ -249,7 +249,7 @@ body {
     top: 0;
     right: 0;
     margin-top: 1rem; /* 調整上邊距 */
-    margin-right: 4rem; /* 調整右邊距，使其顯示在 LogIn 的左邊 */
+    margin-right: 8rem; /* 調整右邊距，使其顯示在 LogIn 的左邊 */
     cursor: pointer;
 }
 
@@ -261,7 +261,14 @@ body {
     margin-right: 1rem; /* 調整右邊距 */
     cursor: pointer;
 }
-
+.cart{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem; /* 調整上邊距 */
+    margin-right: 4rem; /* 調整右邊距 */
+    cursor: pointer;
+}
 
 
 

@@ -21,7 +21,7 @@
                             <form action="{{ url_for('logout') }}" method="post">
                                 <button type="submit" class="logout">登出</button>
                             </form>
-                            <button id="chart" onclick="goToCart()">購物車</button>
+                            <button class="cart" onclick="goToCart()">購物車</button>
                         {% endfor %}
                     {% else %}
                         <p id="signUp" onclick="signup()">註冊</p>

@@ -1,27 +1,30 @@
 from flask import Flask , render_template, redirect, session, g, request, flash, jsonify
 import sqlite3 as sq
 
-tmp=''
 
-def check_login():
-    print(session['user_'])
-    return 'user_' in session
 
 app = Flask(__name__)
 app.secret_key = 'asdasd'
 
+def check_login():
+    try:
+        if session.get('username') != None:
+            return True
+    except:
+        return False
 
 @app.route('/', methods=['GET'])
 def homePage():
+    session.clear()
     return render_template("web_1.html")
 
 
 @app.route('/web_2', methods=['GET'])
 def shop():
     if check_login():
-        return render_template("web_2.html", username=session['user_'])
+        return render_template("web_2.html", username=session.get('username'))
     else:
-        return redirect('/login')
+        return render_template("web_2.html")
 
 
 #登錄
@@ -39,8 +42,8 @@ def login():
         cursorObj.close()
         con.close()
         if user:
-            session['user_']=name
-            user_ = session.get('user_')
+            session['username']=name
+            user_ = session.get('username')
             print(user_)
             flash(f'{user_}')
             return redirect('/web_2')
@@ -53,9 +56,9 @@ def login():
 #登出 #TODO確定登出後要導向到哪裡
 @app.route('/logout', methods=['POST'])
 def logout():
-    session.pop('username', None)
+    session.clear
     # flash('已登出')
-    return redirect('/web_2')
+    return redirect('/')
 
 #註冊
 @app.route('/signup', methods=['GET','POST'])
@@ -73,8 +76,8 @@ def signup():
         cursorObj.close()
         con.close()
         if user:
-            session['user_']=name
-            user_ = session.get('user_')
+            session['username']=name
+            user_ = session.get('username')
             flash(f'{user_}')
             print(name)
             return redirect('/web_2')
@@ -91,16 +94,16 @@ def signup():
 
 @app.route('/get-username')
 def get_username():
-    # 獲取當前用戶的用戶名
-    if session['user_']:
-        return jsonify({'username': session['user_']})
-    return jsonify({'message': 'User not logged in'}), 401
+    if 'username' in session:
+        print(session['username'])
+        return jsonify({'username': session.get('username')}) 
+    else:
+        return jsonify({'message': 'User not logged in'}), 401
 
 
 @app.route('/add-to-cart', methods=['POST']) #TODO將商品價格也加入資料庫
 def add_to_cart():
-    print(tmp)
-    if  not session['user_']:
+    if  session.get('username')==None:
         return jsonify({'message': 'User not logged in'}), 401
     data = request.json #接收請求
     product_name = data.get('product_name')
@@ -126,12 +129,11 @@ def add_to_cart():
     else:
         return jsonify({'message': 'Product out of stock'}), 400
 
-
 @app.route('/get-cart-items', methods=['GET']) #TODO返回商品名稱跟價格
 def get_cart_items():
     con = sq.connect('eyefind.db')
     cursorObj = con.cursor()
-    cursorObj.execute("SELECT car_id FROM shopping_cart WHERE username=?", (str(session['user_']),))
+    cursorObj.execute("SELECT car_id FROM shopping_cart WHERE username=?", (str(session.get('username')),))
     items = cursorObj.fetchall()
     cursorObj.close()
     con.close()
@@ -144,8 +146,6 @@ def get_cart_items():
 @app.route('/cart',methods=['GET'])
 def chart():
      return render_template("cart.html")
-
-
 
 
 if __name__=='__main__':
