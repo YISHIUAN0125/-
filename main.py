@@ -7,11 +7,9 @@ app = Flask(__name__)
 app.secret_key = 'asdasd'
 
 def check_login():
-    try:
-        if session.get('username') != None:
-            return True
-    except:
-        return False
+    if session.get('username') != None:
+        return True
+    return False
 
 @app.route('/', methods=['GET'])
 def homePage():
@@ -21,8 +19,11 @@ def homePage():
 
 @app.route('/web_2', methods=['GET'])
 def shop():
-    if check_login():
-        return render_template("web_2.html", username=session.get('username'))
+    if check_login()==True:
+        # return render_template("web_2.html", username=session.get('username'))
+        flash(f'{session.get('username')}')
+        return render_template("web_2.html")
+        # return redirect('/web_2')
     else:
         return render_template("web_2.html")
 
@@ -120,7 +121,7 @@ def add_to_cart():
         # 庫存足夠，加到購物車
         con = sq.connect('eyefind.db')
         cursorObj = con.cursor()
-        cursorObj.execute("INSERT INTO shopping_cart (car_id, username) VALUES (?, ?)", (str(product_name), str(username)))
+        cursorObj.execute("INSERT INTO shopping_cart (car_id, price, username) VALUES (?, ?, ?)", (str(product_name), int(price),str(username)))
         # cursorObj.execute("UPDATE products SET stock = stock - 1 WHERE product_name = ?", (product_name,))
         con.commit()
         cursorObj.close()
@@ -133,11 +134,11 @@ def add_to_cart():
 def get_cart_items():
     con = sq.connect('eyefind.db')
     cursorObj = con.cursor()
-    cursorObj.execute("SELECT car_id FROM shopping_cart WHERE username=?", (str(session.get('username')),))
+    cursorObj.execute("SELECT car_id,price FROM shopping_cart WHERE username=?", (str(session.get('username')),))
     items = cursorObj.fetchall()
     cursorObj.close()
     con.close()
-    cart_items = [{'car_id': item[0]} for item in items]
+    cart_items = [{'car_id': item[0],'price':item[1]} for item in items]
     print(cart_items)
     return jsonify({'items': cart_items})
 
