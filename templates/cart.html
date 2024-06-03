@@ -20,6 +20,26 @@
         <div id="cart-container">
             <!-- 購物車內容將在此動態加載 -->
         </div>
+        <div id="checkout-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Checkout</h2>
+                <form id="checkout-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email" required>
+                    <label for="phone">Phone:</label>
+                    <input type="text" id="phone" name="phone" required>
+                    <label for="payment-method">Payment Method:</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="cash">Cash</option>
+                        <option value="credit-card">Credit Card</option>
+                    </select>
+                    <button type="submit">Pay</button>
+                </form>
+            </div>
+        </div>
     <script src="..\static\js\web_2.js"></script>
     </body>
 </html>

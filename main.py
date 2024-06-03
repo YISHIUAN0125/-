@@ -142,6 +142,49 @@ def get_cart_items():
     print(cart_items)
     return jsonify({'items': cart_items})
 
+@app.route('/clear-cart-item', methods=['POST'])
+def clearItem():
+    data = request.get_json()
+    items = data.get('items', [])
+    if not items:
+        return jsonify({'error': 'No items provided'}), 400
+    con = sq.connect('eyefind.db')
+    cursorObj = con.cursor()
+    for id in items:   
+        cursorObj.execute('DELETE FROM shopping_cart WHERE car_id=?', (id,))
+    con.commit()
+    cursorObj.close()
+    con.close()
+    return jsonify({'message': 'Selected items have been cleared'})
+
+#結帳
+@app.route('/process-payment', methods=['POST'])
+def process_payment():
+    payment_info = request.json
+    name = payment_info.get('name', None)
+    email = payment_info.get('email', None)
+    phone = payment_info.get('phone', None)
+    payment_method = payment_info.get('payment-method', None)
+    if name and email and phone and payment_method:
+        
+        response_data = {"status": "success", "message": "Payment processed successfully."}
+        return jsonify(response_data)
+    else:
+        response_data = {"status": "error", "message": "All fields are required."}
+        return jsonify(response_data), 400 
+
+@app.route('/clear-cart', methods=['POST'])
+def clearCart():
+    try:
+        con = sq.connect('eyefind.db')
+        cursorObj = con.cursor()
+        cursorObj.execute('DELETE FROM shopping_cart ')
+        con.commit()
+        cursorObj.close()
+        con.close()
+        return jsonify({'message': 'Cart cleared successfully'}), 200
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
 
 #購物車
 @app.route('/cart',methods=['GET'])
