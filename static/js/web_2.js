@@ -208,12 +208,10 @@ function loadCartItems() { //TODO加入checkbox以及數量還有結帳按鈕
                             })
                             .catch(error => console.error('Error clearing cart:', error));
                             
-
-
-
                         })
                         .catch(error => console.error('Error processing payment:', error));
                     });
+  
                 });
 
                 cartContainer.appendChild(checkoutButton);

@@ -1,6 +1,6 @@
 from flask import Flask , render_template, redirect, session, g, request, flash, jsonify
 import sqlite3 as sq
-
+import re
 
 
 app = Flask(__name__)
@@ -10,6 +10,19 @@ def check_login():
     if session.get('username') != None:
         return True
     return False
+
+def checkPass(password):
+    special_characters = re.compile(r'[@_!#$%^&*()<>?/\\|}{~:]')
+    if special_characters.search(password):
+        return True
+    return False
+
+def checkEmail(email):
+    email_pattern = re.compile(r'.*@gmail\.com$')
+    if  email_pattern.match(email):
+        return True
+    return False
+
 
 @app.route('/', methods=['GET'])
 def homePage():
@@ -70,23 +83,62 @@ def signup():
         con = sq.connect('eyefind.db')
         cursorObj = con.cursor()
         print('connected')
-        cursorObj.execute("INSERT INTO userdata VALUES(?,?)", (name,password))
-        con.commit()
-        cursorObj.execute("SELECT * FROM userdata WHERE username=? AND password=?", (name, password))
-        user = cursorObj.fetchone()
+        a = cursorObj.execute("SELECT username FROM userdata")
+        user = a.fetchall()
+        print(user)
         cursorObj.close()
         con.close()
-        if user:
-            session['username']=name
-            user_ = session.get('username')
-            flash(f'{user_}')
-            print(name)
-            return redirect('/web_2')
-        else:      
-            # flash('登錄失敗，請檢查使用者名稱或密碼！')
-            return redirect('/signup')
+        check = False
+        for i in user:
+            if i[0]==name:
+                check=True
+                break
+        if check:
+            return render_template('signup.html', message='此名稱已被使用')
+        elif checkPass(password)==False:
+            return render_template('signup.html', message='密碼須包含特殊字元')
+        elif len(password)<8:
+            return render_template('signup.html', message='密碼需大於八個字元')
+        else:
+            con = sq.connect('eyefind.db')
+            cursorObj = con.cursor()
+            cursorObj.execute("INSERT INTO userdata VALUES(?,?)", (name,password))
+            con.commit()
+            cursorObj.execute("SELECT * FROM userdata WHERE username=? AND password=?", (name, password))
+            user = cursorObj.fetchone()
+            cursorObj.close()
+            con.close()
+            if user:
+                session['username']=name
+                user_ = session.get('username')
+                flash(f'{user_}')
+                print(name)
+                return redirect('/web_2')
     else:
         return render_template("signup.html")
+    # if request.method=='POST':
+    #     name = request.form['username']
+    #     password = request.form['password']
+    #     con = sq.connect('eyefind.db')
+    #     cursorObj = con.cursor()
+    #     print('connected')
+    #     cursorObj.execute("INSERT INTO userdata VALUES(?,?)", (name,password))
+    #     con.commit()
+    #     cursorObj.execute("SELECT * FROM userdata WHERE username=? AND password=?", (name, password))
+    #     user = cursorObj.fetchone()
+    #     cursorObj.close()
+    #     con.close()
+    #     if user:
+    #         session['username']=name
+    #         user_ = session.get('username')
+    #         flash(f'{user_}')
+    #         print(name)
+    #         return redirect('/web_2')
+    #     else:      
+    #         # flash('登錄失敗，請檢查使用者名稱或密碼！')
+    #         return redirect('/signup')
+    # else:
+    #     return render_template("signup.html")
 
 # def getCurrentUser():
 #     if 'username' in session:
@@ -165,8 +217,31 @@ def process_payment():
     email = payment_info.get('email', None)
     phone = payment_info.get('phone', None)
     payment_method = payment_info.get('payment-method', None)
-    if name and email and phone and payment_method:
-        
+    selected_items = payment_info.get('selectedItems', [])
+
+    if name and email and phone and payment_method :
+        con = sq.connect('eyefind.db')
+        cursorObj = con.cursor()
+        for item in selected_items:
+            car_id = item['car_id']
+            quantity = int(item['quantity'])
+            cursorObj.execute("SELECT quantity FROM product WHERE car_id = ?", (car_id,))
+            product = cursorObj.fetchone()
+            print(product)
+            if product:
+                current_stock = product[0]
+                if current_stock >= quantity:
+                    # 更新庫存
+                    new_stock = current_stock - quantity
+                    cursorObj.execute("UPDATE product SET quantity = ? WHERE car_id = ?", (new_stock, car_id))
+                else:
+                    return jsonify({'message': 'Not enough stock for product ID {}'.format(car_id)}), 400
+            else:
+                return jsonify({'message': 'Product not found.'}), 404
+
+        con.commit()
+        cursorObj.close()
+        con.close()
         response_data = {"status": "success", "message": "Payment processed successfully."}
         return jsonify(response_data)
     else:

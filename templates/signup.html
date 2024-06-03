@@ -7,6 +7,11 @@
         <link rel="stylesheet" href="..\static\CSS\signup.css"/>
     </head>
     <body style="margin:0;">
+        {% if message %}
+    <script>
+        alert("{{ message }}"); 
+    </script>
+     {% endif %}
         <nav id="nav_bar">
             <div class="logo_background">
             <img src="..\static\img\Eyefind.info-GTA4-logo.jpg" class="logo" />
