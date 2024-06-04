@@ -2,7 +2,6 @@ from flask import Flask , render_template, redirect, session, g, request, flash,
 import sqlite3 as sq
 import re
 
-
 app = Flask(__name__)
 app.secret_key = 'asdasd'
 
@@ -212,6 +211,7 @@ def clearItem():
 #結帳
 @app.route('/process-payment', methods=['POST'])
 def process_payment():
+    car=''
     payment_info = request.json
     name = payment_info.get('name', None)
     email = payment_info.get('email', None)
@@ -224,6 +224,7 @@ def process_payment():
         cursorObj = con.cursor()
         for item in selected_items:
             car_id = item['car_id']
+            car+=car_id
             quantity = int(item['quantity'])
             cursorObj.execute("SELECT quantity FROM product WHERE car_id = ?", (car_id,))
             product = cursorObj.fetchone()
@@ -242,7 +243,8 @@ def process_payment():
         con.commit()
         cursorObj.close()
         con.close()
-        response_data = {"status": "success", "message": "Payment processed successfully."}
+        print(car)
+        response_data = {"status": "success", "message": "Payment processed successfully.","car_id": car}
         return jsonify(response_data)
     else:
         response_data = {"status": "error", "message": "All fields are required."}
@@ -265,7 +267,6 @@ def clearCart():
 @app.route('/cart',methods=['GET'])
 def chart():
      return render_template("cart.html")
-
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=6016, debug=True)

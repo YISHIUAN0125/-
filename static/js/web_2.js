@@ -60,7 +60,7 @@ function addToCart(product_name, price) {
     });
 }
 
-function loadCartItems() { //TODO加入checkbox以及數量還有結帳按鈕
+function loadCartItems() { 
     fetch('/get-cart-items')
         .then(response => response.json())
         .then(data => {
@@ -197,14 +197,13 @@ function loadCartItems() { //TODO加入checkbox以及數量還有結帳按鈕
                                 headers: {
                                     'Content-Type': 'application/json'
                                 },
-                                body: JSON.stringify({})  // 如果清空购物车不需要额外的参数，可以传递一个空对象
+                                body: JSON.stringify({})  
                             })
                             .then(response => response.json())
                             .then(data => {
                                 console.log('Cart cleared successfully:', data);
-                                // 清空购物车成功后，您可以根据需求执行其他操作，比如刷新购物车列表等
-                                // 重新加载购物车
                                 loadCartItems();
+                                
                             })
                             .catch(error => console.error('Error clearing cart:', error));
                             
@@ -262,7 +261,7 @@ function loadCartItems() { //TODO加入checkbox以及數量還有結帳按鈕
                         quantityElement.textContent = quantity;
                         totalElement.textContent = Math.round(pricePerUnit * quantity);
 
-                        // 更新总价
+                        // 更新總價
                         updateTotalPrice();
                     }
                 });
@@ -274,7 +273,6 @@ function loadCartItems() { //TODO加入checkbox以及數量還有結帳按鈕
         .catch(error => console.error('Error fetching cart items:', error));
 }
 
-// 函数更新总价
 function updateTotalPrice() {
     let totalPrice = 0;
     document.querySelectorAll('.cart-table .total').forEach(totalElement => {
@@ -282,6 +280,24 @@ function updateTotalPrice() {
     });
     document.getElementById('total-price').textContent = totalPrice;
 }
+
+// 显示订单信息函数
+function displayOrderInfo(orderInfo) {
+    // 取得當前時間
+    let now = new Date();
+    // 取得本地時間
+    let localTime = now.toLocaleTimeString();;
+    const orderInfoContainer = document.createElement('div');
+    orderInfoContainer.className = 'order-info';
+    orderInfoContainer.innerHTML = `
+        <h3>Order Information</h3>
+        <p>Order Date: ${localTime}</p>
+    `;
+    document.getElementById('cart-container').appendChild(orderInfoContainer);
+}
+
+
+
 
 
 
