@@ -34,7 +34,7 @@ def homePage():
 def shop():
     if check_login()==True:
         # return render_template("web_2.html", username=session.get('username'))
-        flash(f'{session.get('username')}')
+        flash(f'{session.get("username")}')
         return render_template("web_2.html")
         # return redirect('/web_2')
     else:

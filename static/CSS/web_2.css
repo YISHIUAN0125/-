@@ -260,6 +260,10 @@ body {
     margin-top: 1rem; /* 調整上邊距 */
     margin-right: 1rem; /* 調整右邊距 */
     cursor: pointer;
+    color: white;
+    /* font-size: 18px; */
+    background-color: rgb(68, 132, 204);
+    border: 0;
 }
 .cart{
     position: absolute;
@@ -268,6 +272,10 @@ body {
     margin-top: 1rem; /* 調整上邊距 */
     margin-right: 4rem; /* 調整右邊距 */
     cursor: pointer;
+    color: white;
+    /* font-size: 18px; */
+    background-color: rgb(68, 132, 204);
+    border: 0;
 }
 
 
