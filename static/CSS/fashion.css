@@ -1,0 +1,282 @@
+.logo{
+    width : 180px;
+    margin-left: 5rem;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+.logo_background{
+    height : 170px;
+    background-color:rgb(68, 132, 204);
+}
+.logo_background_2{
+    height : 10px;
+    background-color:rgb(230, 213, 23);
+}
+.table{
+    border: solid black 1px;
+    table-layout: fixed;
+    width:100%;
+    height: 60px;
+    font-size: 16px;
+    text-align: center;
+    background-color: rgb(235, 235, 230);
+    cursor: pointer;
+}
+input[type='text']{
+    position: relative;
+    width: 50%;
+    height:35px
+}
+input[type="button"]{
+    position: relative;
+    height: 39px;
+    width: 100px;
+    background-color: rgb(11, 98, 161);
+    margin-left: 1rem;
+    border-radius: 0.5rem;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+}
+.input{
+    margin-top: 0.5rem; ;
+    display:flex;
+    justify-content: center;
+}
+.motor_works{
+    position: relative;
+    display: inline-block;
+    margin-top: 3.75rem;
+    margin-left: 8.125rem;
+    padding-top: 2.5rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    background-color: rgb(68, 132, 204);
+    border-top: 0.375rem solid rgb(230, 213, 23);
+    width: 26vw;
+}
+.motor_works_2{
+    
+    position: relative;
+    display: inline-block;
+    margin-top: 3.75rem;
+    margin-left: 0.9375rem;
+    padding-top: 2.5rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    background-color: rgb(68, 132, 204);
+    border-top: 0.375rem solid rgb(230, 213, 23);
+    width: 25.4vw;
+}
+.motor_works_3{
+    
+    position: relative;
+    display: inline-block;
+    margin-top: 3.75rem;
+    margin-left: 0.9375rem;
+    padding-top: 2.5rem;
+    padding-left: 0.3125rem;
+    padding-right: 0.3125rem;
+    padding-bottom: 0.3125rem;
+    background-color: rgb(68, 132, 204);
+    border-top: 0.375rem solid rgb(230, 213, 23);
+    width: 26vw;
+}
+.Media:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Food:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Money:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Travel:hover{
+    background-color: rgb(200, 200, 197);
+}
+.Fashion:hover{
+    background-color: rgb(200, 200, 197);
+}
+
+.Media:active{
+    background-color: rgb(188, 188, 185);
+}
+.Food:active{
+    background-color: rgb(188, 188, 185);
+}
+.Money:active{
+    background-color: rgb(188, 188, 185);
+}
+.Travel:active{
+    background-color: rgb(188, 188, 185);
+}
+.Fashion:active{
+    background-color: rgb(188, 188, 185);
+}
+.coffee {
+    max-width: 200%;  /* 限制圖片的最大寬度 */
+    max-height: 400px;  /* 限制圖片的最大高度 */
+    margin-left: 50px;
+}
+.p1 {
+    margin-left: 50px;
+    width: 200px;  /* 将宽度设置为200px */
+    height: 400px;
+    
+}
+.image-row {
+    display: flex;
+    flex-wrap: wrap; /* 允许元素在需要时换行 */
+    justify-content: space-around; /* 水平间距均匀分布 */
+    align-items: center; /* 垂直居中对齐所有元素 */
+}
+
+/* 每个包含图片和文本的div都设置为flex容器 */
+.image-row > div {
+    display: flex;
+    flex-direction: column; /* 使子元素垂直排列 */
+    align-items: center; /* 在垂直方向上居中对齐子元素 */
+    width: 200px; /* 设置宽度以确保布局一致 */
+    margin: 10px; /* 添加外边距以避免元素相互挤压 */
+}
+
+.p2{
+    margin-right: 50px;
+    width: 200px;  /* 将宽度设置为200px */
+    height: 400px;
+}
+.p4{
+    margin-right: 50px;
+    width: 200px;  /* 将宽度设置为200px */
+    height: 400px;
+}
+.p3{
+    margin-left: 50px;
+    width: 200px;  /* 将宽度设置为200px */
+    height: 400px; 
+}
+.image-row {
+    display: flex;
+    justify-content: space-between; /* 按需要调整，例如：space-between, space-around, center 等 */
+    align-items: flex-start; /* 如果希望所有内容顶部对齐 */
+}
+
+.c2{
+    display: flex;
+    justify-content: center;
+}
+
+.search_btn{
+    cursor: pointer;
+}
+#LogIn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    background-color: rgb(68, 132, 204);
+}
+
+#signUp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 1rem;
+    margin-right: 4rem; 
+    cursor: pointer;
+}
+.logo_background p {
+    color: white;
+}
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.motor_works, .motor_works_2, .motor_works_3 {
+    opacity: 0;
+    animation: fadeInFromTop 1s ease forwards; 
+}
+/* #nav_bar{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../img/M4.jpg");
+} */
+/* .masthead {
+    position: relative;
+    width: 100%;
+    height: auto;
+    min-height: 35rem;
+    padding: 15rem 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 75%, #000 100%), url("../img/M4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+  }
+  .masthead h1, .masthead .h1 {
+    font-family: "Varela Round", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 2.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 0.8rem;
+    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+            background-clip: text;
+  }
+  .masthead h2, .masthead .h2 {
+    max-width: 20rem;
+    font-size: 1rem;
+  }
+  @media (min-width: 768px) {
+    .masthead h1, .masthead .h1 {
+      font-size: 4rem;
+      line-height: 4rem;
+    }
+  }
+  @media (min-width: 992px) {
+    .masthead {
+      height: 100vh;
+      padding: 0;
+    }
+    .masthead h1, .masthead .h1 {
+      font-size: 6.5rem;
+      line-height: 6.5rem;
+      letter-spacing: 0.8rem;
+    }
+    .masthead h2, .masthead .h2 {
+      max-width: 30rem;
+      font-size: 1.25rem;
+    }
+  }
+  h2, .h2, h1, .h1 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  h1, .h1 {
+    font-size: calc(1.375rem + 1.5vw);
+  }
+  @media (min-width: 1200px) {
+    h1, .h1 {
+      font-size: 2.5rem;
+    }
+  }
+  
+  h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
+  @media (min-width: 1200px) {
+    h2, .h2 {
+      font-size: 2rem;
+    }
+  } */
+  

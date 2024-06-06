@@ -268,5 +268,22 @@ def clearCart():
 def chart():
      return render_template("cart.html")
 
+
+@app.route('/fashion', methods=['GET'])
+def fashion():
+    return render_template("fashion.html")
+
+@app.route('/food', methods=['GET'])
+def food():
+    return render_template("food.html")
+
+@app.route('/media', methods=['GET'])
+def media():
+    return render_template("media.html")
+
+@app.route('/travel', methods=['GET'])
+def travel():
+    return render_template("travel.html")
+
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=6016, debug=True)

@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>eyefind.info</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="..\static\CSS\web.css"/>
-    </head>
-    <body style="margin: 0;">
-        <nav id="nav_bar">
-            <div class="logo_background">
-                <p  id="signUp" onclick="signup()">註冊</p>
-                <p  id="LogIn" onclick="login()">登錄</p>
-                <img src="..\static\img\Eyefind.info-GTA4-logo.jpg" class="logo">
-                <div class="input">
-                    <input type="text" placeholder="Search">
-                    <input type="button" name="search" value="RANDOM" class="search_btn">
-                </div>
+<head>
+    <title>eyefind.info</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/CSS/web.css"/>
+</head>
+<body style="margin: 0;">
+    <nav id="nav_bar">
+        <div class="logo_background">
+            <p id="signUp" onclick="signup()">註冊</p>
+            <p id="LogIn" onclick="login()">登錄</p>
+            <img src="../static/img/Eyefind.info-GTA4-logo.jpg" class="logo">
+            <div class="input">
+                <input type="text" placeholder="Search">
+                <input type="button" name="search" value="RANDOM" class="search_btn" onclick="randomRedirect()">
             </div>
-            <div class="logo_background_2"></div>
-            <div class="nav_table">
-                <table class="table" border="1px">
-                    <tr>
-                        <td class="Media">Media and<br>Entertainment</td>
-                        <td class="Food">Food<br>and Drink</td>
-                        <td class="Money">Money<br>and Service</td>
-                        <td class="Travel">Travel<br>and Transport</td>
-                        <td class="Fashion">Fashion<br>and Health</td>
-                    </tr>
-                </table>
-                <div class="ADs">
-                    <img src="..\static\img\benny.png" class="motor_works">
-                    <img src="..\static\img\dynasty.png" class="motor_works_2">
-                    <img src="..\static\img\benny.png" class="motor_works_3">
-                </div>
-            </div>
-        </nav>
-        <div class="sponsor">
         </div>
-     <script src="..\static\js\web.js"></script>
-    </body>
+        <div class="logo_background_2"></div>
+        <div class="nav_table">
+            <table class="table" border="1px">
+                <tr>
+                    <td class="Media" onclick="randomMediaRedirect()">Media and<br>Entertainment</td>
+                    <td class="Food" onclick="food_()">Food<br>and Drink</td>
+                    <td class="Money" onclick="web2_()">Money<br>and Service</td>
+                    <td class="Travel" onclick="travel_()">Travel<br>and Transport</td>
+                    <td class="Fashion" onclick="fashion_()">Fashion<br>and Health</td>
+                </tr>
+            </table>
+            <div class="ADs">
+                <img src="../static/img/benny.png" class="motor_works">
+                <img src="../static/img/dynasty.png" class="motor_works_2">
+                <img src="../static/img/benny.png" class="motor_works_3">
+            </div>
+        </div>
+    </nav>
+    <div class="sponsor">
+    </div>
+    <script src="../static/js/web.js"></script>
+</body>
 </html>
