@@ -11,7 +11,7 @@
                 <img src="../static/img/Eyefind.info-GTA4-logo.jpg" class="logo" onclick="web1_()"/>
                 <div class="input">
                     <input type="text" placeholder="Search"/>
-                    <input type="button" name="search" value="RANDOM" class="search_btn"/>
+                    <input type="button" name="search" value="RANDOM" class="search_btn" onclick="randomRedirect()">
                 </div>
                 <div id="loginSection">
                     {% with message = get_flashed_messages() %}
@@ -56,49 +56,58 @@
             <table id="table_1" border="3px" class="BMW"><!--TODO商品加入購物車--><!--TODO如果可以，讓價格更多樣化-->
                 <td><a href="/Web_2"><img src="../static/img/M2.jpg" width="200"/></a></td>
                 <td>BMW M2 - $1,000,000</td>
+                <td class="stock" id="stock_M2">Loading...</td>
                 <!-- <td>$1,000,000</td> -->
                 <td class="buy"><button onclick="addToCart('M2', 1000000)">加入購物車</button></td>
             </table>
             <table id="table_2" border="3px" class="BMW">
                 <td><a href="/Web_2"><img src="../static/img/M4.jpg" width="200"/></a></td>
                 <td>BMW M4 - $1,200,000</td>
+                <td class="stock" id="stock_M4">Loading...</td>
                 <td class="buy"><button onclick="addToCart('M4', 1200000)">加入購物車</button></td>
             </table>
             <table id="table_3" border="3px" class="BMW">
                 <td><a href="/Web_2"><img src="../static/img/M5.jpg" width="200"/></a></td>
                 <td>BMW M5 - $1,500,000</td>
+                <td class="stock" id="stock_M5">Loading...</td>
                 <td class="buy"><button onclick="addToCart('M5', 1500000)">加入購物車</button></td>
             </table>
 
             <table id="table_4" border="3px" class="Audi"><!--TODO商品加入購物車--><!--TODO如果可以，讓價格更多樣化-->
                 <td><a href="Web_2.html"><img src="../static/img/audiA4.jpg" width="200"/></a></td>
                 <td>Audi A4 - $1,100,000</td>
+                <td class="stock" id="stock_A4">Loading...</td>
                 <td class="buy"><button onclick="addToCart('A4', 1100000)">加入購物車</button></td>
             </table>
             <table id="table_5" border="3px" class="Audi">
                 <td><a href="Web_2.html"><img src="../static/img/audiA3.jpg" width="200"/></a></td>
                 <td>Audi A3 - $900,000</td>
+                <td class="stock" id="stock_A3">Loading...</td>
                 <td class="buy"><button onclick="addToCart('A3', 900000)">加入購物車</button></td>
             </table>
             <table id="table_6" border="3px" class="Audi">
                 <td><a href="Web_2.html"><img src="../static/img/audiA1.jpg" width="200"/></a></td>
                 <td>Audi A1 - $800,000</td>
+                <td class="stock" id="stock_A1">Loading...</td>
                 <td class="buy"><button onclick="addToCart('A1', 800000)" >加入購物車</button></td>
             </table>
 
             <table id="table_7" border="3px" class="Mercedes-Benz"><!--TODO商品加入購物車--><!--TODO如果可以，讓價格更多樣化-->
                 <td><a href="Web_2.html"><img src="../static/img/c200.jpg" width="200"/></a></td>
                 <td>Benz c200 - $1,300,000</td>
+                <td class="stock" id="stock_c200">Loading...</td>
                 <td class="buy"><button onclick="addToCart('c200', 1300000)">加入購物車</button></td>
             </table>
             <table id="table_8" border="3px" class="Mercedes-Benz">
                 <td><a href="Web_2.html"><img src="../static/img/c250.jpg" width="200"/></a></td>
                 <td>Benz c250 - $1,400,000</td>
+                <td class="stock" id="stock_c250">Loading...</td>
                 <td class="buy"><button onclick="addToCart('c250', 1400000)">加入購物車</button></td>
             </table>
             <table id="table_9" border="3px" class="Mercedes-Benz">
                 <td><a href="Web_2.html"><img src="../static/img/c300.jpg" width="200"/></a></td>
                 <td>Benz c300 - $1,600,000</td>
+                <td class="stock" id="stock_c300">Loading...</td>
                 <td class="buy"><button onclick="addToCart('c300', 1600000)">加入購物車</button></td>
             </table>
         <!--product table end-->

@@ -5,6 +5,14 @@ import re
 app = Flask(__name__)
 app.secret_key = 'asdasd'
 
+def get_stock(product_id):
+    con = sq.connect('eyefind.db')
+    cursorObj = con.cursor()
+    cursorObj.execute("SELECT quantity FROM product WHERE car_id=?", (str(product_id),))
+    stock = cursorObj.fetchone()
+    con.close()
+    return stock[0] if stock else False
+
 def check_login():
     if session.get('username') != None:
         return True
@@ -262,6 +270,12 @@ def clearCart():
         return jsonify({'message': 'Cart cleared successfully'}), 200
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+#stock
+@app.route('/stock/<product_id>')
+def stock(product_id):
+    stock_count = get_stock(product_id)
+    return jsonify(stock=stock_count)
 
 #購物車
 @app.route('/cart',methods=['GET'])
@@ -271,19 +285,32 @@ def chart():
 
 @app.route('/fashion', methods=['GET'])
 def fashion():
-    return render_template("fashion.html")
+    if  session.get('username')==None:
+        return render_template("fashion.html")
+    name=session.get('username')
+    return render_template("fashion.html",message=name)
+    
 
 @app.route('/food', methods=['GET'])
 def food():
-    return render_template("food.html")
+    if  session.get('username')==None:
+        return render_template("fashion.html")
+    name=session.get('username')
+    return render_template("fashion.html",message=name)
 
 @app.route('/media', methods=['GET'])
 def media():
-    return render_template("media.html")
+    if  session.get('username')==None:
+        return render_template("fashion.html")
+    name=session.get('username')
+    return render_template("fashion.html",message=name)
 
 @app.route('/travel', methods=['GET'])
 def travel():
-    return render_template("travel.html")
+    if  session.get('username')==None:
+        return render_template("fashion.html")
+    name=session.get('username')
+    return render_template("fashion.html",message=name)
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=6016, debug=True)

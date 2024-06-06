@@ -8,12 +8,23 @@
     <body style="margin: 0;">
         <nav id="nav_bar">
             <div class="logo_background">
-                <p id="signUp" onclick="signup()">註冊</p>
-                <p id="LogIn" onclick="login()">登錄</p>
                 <img src="../static/img/Eyefind.info-GTA4-logo.jpg" class="logo">
                 <div class="input">
                     <input type="text" placeholder="Search">
                 </div>
+            </div>
+            <div id="loginSection">
+                {% if message %}
+                        <p id="welcomMsg">Hi {{ message }}</p>
+                        <form action="{{ url_for('logout') }}" method="post">
+                            <button type="submit" class="logout">登出</button>
+                        </form>
+                        <button class="cart" onclick="goToCart()">購物車</button>
+                        <!-- <a href="/Web_2"><img src="../static/img/cart.png" width="100" class="cart" onclick="goToCart()"/></a> -->
+                {% else %}
+                    <p id="signUp" onclick="signup()">註冊</p>
+                    <p id="LogIn" onclick="login()">登錄</p>
+                {% endif %}
             </div>
             <div class="logo_background_2"></div>
             <div class="nav_table">

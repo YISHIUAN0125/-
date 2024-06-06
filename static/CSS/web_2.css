@@ -279,5 +279,54 @@ body {
 }
 
 
+/* General Styles for Tables */
+.fixed-table {
+    width: 60%; /* Fixed width for all tables */
+    margin: 1rem auto; /* Center tables horizontally and add top margin */
+    border-collapse: collapse; /* Remove border spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for visual appeal */
+}
+
+/* General Styles for Table Cells */
+.fixed-table td {
+    padding: 0.625rem; /* Adjust cell padding */
+    text-align: center; /* Center-align cell content */
+    vertical-align: middle; /* Vertically center-align cell content */
+}
+
+/* Styles for Images within Tables */
+.fixed-table img {
+    max-width: 100%; /* Ensure images fit within the cell */
+    max-height: 100%; /* Ensure images fit within the cell */
+}
+
+/* Styles for the Buy Button */
+.buy button {
+    padding: 5px 10px; /* Adjust button padding */
+    background-color: #007bff; /* Button background color */
+    color: white; /* Button text color */
+    border: none; /* Remove button border */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.buy button:hover {
+    background-color: #0056b3; /* Change background on hover */
+}
+
+/* Styles for Stock Information */
+.stock {
+    width: 100px; /* Fixed width for stock cells */
+}
+
+/* Additional Styles for Better Layout */
+body {
+    margin: 0;
+}
+
+.input {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+}
 
 

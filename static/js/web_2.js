@@ -281,7 +281,7 @@ function updateTotalPrice() {
     document.getElementById('total-price').textContent = totalPrice;
 }
 
-// 显示订单信息函数
+
 function displayOrderInfo(orderInfo) {
     // 取得當前時間
     let now = new Date();
@@ -296,10 +296,28 @@ function displayOrderInfo(orderInfo) {
     document.getElementById('cart-container').appendChild(orderInfoContainer);
 }
 
+document.addEventListener('DOMContentLoaded', (event) => {
+    const products = ['M2', 'M4', 'M5', 'A4', 'A3', 'A1', 'c200', 'c250', 'c300'];
+    
+    products.forEach(product => {
+        fetch(`/stock/${product}`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById(`stock_${product}`).innerText = `Stock: ${data.stock}`;
+            })
+            .catch(error => {
+                console.error('Error fetching stock data:', error);
+                document.getElementById(`stock_${product}`).innerText = 'Stock: N/A';
+            });
+    });
+});
 
 
-
-
+function randomRedirect() {
+    var pages = ['/media', '/food', '/travel', '/fashion'];
+    var randomPage = pages[Math.floor(Math.random() * pages.length)];
+    window.location.href = randomPage;
+}
 
 window.onload = function() {
     loadCartItems();  // 頁面加載時加載購物車內容
