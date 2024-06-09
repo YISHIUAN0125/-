@@ -285,32 +285,21 @@ def chart():
 
 @app.route('/fashion', methods=['GET'])
 def fashion():
-    if  session.get('username')==None:
-        return render_template("fashion.html")
-    name=session.get('username')
-    return render_template("fashion.html",message=name)
+    return render_template("fashion.html")
     
 
 @app.route('/food', methods=['GET'])
 def food():
-    if  session.get('username')==None:
-        return render_template("fashion.html")
-    name=session.get('username')
-    return render_template("fashion.html",message=name)
+        return render_template("food.html")
+
 
 @app.route('/media', methods=['GET'])
 def media():
-    if  session.get('username')==None:
-        return render_template("fashion.html")
-    name=session.get('username')
-    return render_template("fashion.html",message=name)
+    return render_template("media.html")
 
 @app.route('/travel', methods=['GET'])
 def travel():
-    if  session.get('username')==None:
-        return render_template("fashion.html")
-    name=session.get('username')
-    return render_template("fashion.html",message=name)
+    return render_template("travel.html")
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=6016, debug=True)

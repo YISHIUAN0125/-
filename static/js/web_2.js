@@ -313,11 +313,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 
-function randomRedirect() {
-    var pages = ['/media', '/food', '/travel', '/fashion'];
-    var randomPage = pages[Math.floor(Math.random() * pages.length)];
-    window.location.href = randomPage;
-}
+// function randomRedirect() {
+//     var pages = ['/media', '/food', '/travel', '/fashion'];
+//     var randomPage = pages[Math.floor(Math.random() * pages.length)];
+//     window.location.href = randomPage;
+// }
 
 window.onload = function() {
     loadCartItems();  // 頁面加載時加載購物車內容

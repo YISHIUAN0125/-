@@ -12,7 +12,6 @@ function randomRedirect() {
     window.location.href = randomPage;
 }
 
-
 Food[0].addEventListener('click',food_);
 Money[0].addEventListener('click',web2_);
 Travel[0].addEventListener('click',travel_);
